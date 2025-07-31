@@ -7,17 +7,27 @@ import 'package:portfoliosite/services/link_launcher.dart';
 import 'package:portfoliosite/ui/core/localization/applocalization.dart';
 import 'package:portfoliosite/ui/core/themes/dimens.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          Applocalization.of(context).nameShort,
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
+        centerTitle: false,
+        actions: [
+          IconButton(
+            icon: const Icon(CupertinoIcons.folder),
+            onPressed: () {
+              context.go(Routes.projects);
+            },
+          ),
+        ],
+      ),
       body: Container(
         padding: Dimens.paddingScreen(context),
         child: Center(
@@ -30,9 +40,10 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: Dimens.of(context).paddingScreenVertical),
               Text(
-                'About Me',
-                style: Theme.of(context).textTheme.headlineMedium,
+                Applocalization.of(context).name,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
+
               SizedBox(height: Dimens.of(context).paddingScreenVertical),
               Text(
                 Applocalization.of(context).bio,

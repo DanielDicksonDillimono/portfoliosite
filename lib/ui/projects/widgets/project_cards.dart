@@ -28,7 +28,7 @@ class ProjectCards extends StatelessWidget {
                 Expanded(child: Image.asset(project.imageUrl)),
                 Text(
                   project.title,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 SizedBox(height: Dimens.of(context).paddingScreenVertical),
                 Text(

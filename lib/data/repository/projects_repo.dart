@@ -17,7 +17,7 @@ class ProjectsRepo {
       imageUrl: 'assets/images/replee/icon.png',
       projectUrl: 'https://github.com/DanielDicksonDillimono/bodytherapy',
     ),
-    //Project(title: title, description: description, imageUrl: imageUrl, projectUrl: projectUrl)
+
     Project(
       title: 'Linux IVI',
       description:
@@ -25,6 +25,13 @@ class ProjectsRepo {
       imageUrl: 'assets/images/IVI/icon.png',
       projectUrl:
           'https://github.com/DanielDicksonDillimono/in_vehicle_infotainment',
+    ),
+    Project(
+      title: 'Portfolio Site',
+      description:
+          'A portfolio site built with Flutter. This one you are currently viewing.',
+      imageUrl: 'assets/images/PortfolioSite/icon.png',
+      projectUrl: 'https://github.com/DanielDicksonDillimono/portfoliosite',
     ),
   ];
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:portfoliosite/ui/core/localization/applocalization.dart';
 import 'package:portfoliosite/ui/core/themes/dimens.dart';
 import 'package:portfoliosite/ui/projects/models/projects_page_viewmodel.dart';
 import 'package:portfoliosite/ui/projects/widgets/project_cards.dart';
@@ -30,13 +31,13 @@ class ProjectsPage extends StatelessWidget {
             children: [
               SizedBox(height: Dimens.of(context).paddingScreenVertical),
               Text(
-                'Projects',
-                style: Theme.of(context).textTheme.headlineMedium,
+                Applocalization.of(context).projects,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
 
               SizedBox(height: Dimens.of(context).paddingScreenVertical),
               Text(
-                'Here are some of my projects.\nSome (ehmm... most) of them are still in development, while others are completed and available for you to explore.',
+                Applocalization.of(context).projectDescription,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
