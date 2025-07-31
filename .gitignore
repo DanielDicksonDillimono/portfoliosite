@@ -44,6 +44,11 @@ migrate_working_dir/
 analysis_options.yaml
 /.metadata
 
+.firebase/
+.firebaserc   
+firebase.json
+storage.rules
+
 # Symbolication related
 app.*.symbols
 

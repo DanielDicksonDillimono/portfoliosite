@@ -28,6 +28,11 @@ abstract final class Dimens {
     vertical: Dimens.of(context).paddingScreenVertical,
   );
 
+  static double projectCardWidth(BuildContext context) =>
+      MediaQuery.of(context).size.width * 0.8;
+  static double projectCardHeight(BuildContext context) =>
+      MediaQuery.of(context).size.height * 0.6;
+
   factory Dimens.of(BuildContext context) {
     switch (MediaQuery.of(context).size.width) {
       case < 600:

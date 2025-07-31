@@ -13,29 +13,40 @@ class ProjectCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Card(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(project.imageUrl),
-            Text(
-              project.title,
-              style: Theme.of(context).textTheme.headlineMedium,
+      child: SizedBox(
+        width: Dimens.projectCardWidth(context),
+        height: Dimens.projectCardHeight(context),
+        child: Card(
+          color: Theme.of(context).colorScheme.surfaceContainer,
+
+          elevation: 4.0,
+          child: Padding(
+            padding: EdgeInsets.all(Dimens.of(context).paddingScreenHorizontal),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(child: Image.asset(project.imageUrl)),
+                Text(
+                  project.title,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                SizedBox(height: Dimens.of(context).paddingScreenVertical),
+                Text(
+                  project.description,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: Dimens.of(context).paddingScreenVertical),
+                TextButton.icon(
+                  onPressed: () {
+                    LinkLauncher.openSite(project.projectUrl);
+                  },
+                  icon: const Icon(FontAwesomeIcons.github),
+                  label: Text(Applocalization.of(context).visitProject),
+                ),
+              ],
             ),
-            SizedBox(height: Dimens.of(context).paddingScreenVertical),
-            Text(
-              project.description,
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                LinkLauncher.openSite(project.projectUrl);
-              },
-              icon: const Icon(FontAwesomeIcons.github),
-              label: Text(Applocalization.of(context).visitProject),
-            ),
-          ],
+          ),
         ),
       ),
     );

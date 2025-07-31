@@ -1,34 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:portfoliosite/ui/core/themes/dimens.dart';
+import 'package:portfoliosite/ui/projects/models/projects_page_viewmodel.dart';
+import 'package:portfoliosite/ui/projects/widgets/project_cards.dart';
 
 class ProjectsPage extends StatelessWidget {
-  const ProjectsPage({super.key});
+  ProjectsPage({super.key});
+
+  final ProjectsPageViewmodel _viewModel = ProjectsPageViewmodel();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Projects',
-          style: Theme.of(context).textTheme.headlineMedium,
+        leading: IconButton(
+          icon: const Icon(CupertinoIcons.home),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Welcome to the Projects Page!',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Navigate to another page or perform an action
-              },
-              child: const Text('View Project Details'),
-            ),
-          ],
+      body: Padding(
+        padding: Dimens.paddingScreen(context),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              SizedBox(height: Dimens.of(context).paddingScreenVertical),
+              Text(
+                'Projects',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+
+              SizedBox(height: Dimens.of(context).paddingScreenVertical),
+              Text(
+                'Here are some of my projects.\nSome (ehmm... most) of them are still in development, while others are completed and available for you to explore.',
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+              Expanded(
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: _viewModel.projects.length,
+                  itemBuilder: (context, index) {
+                    final project = _viewModel.projects[index];
+                    return Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: Dimens.of(context).paddingScreenVertical,
+                        horizontal: Dimens.of(context).paddingScreenHorizontal,
+                      ),
+                      child: ProjectCards(project: project),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/navigation/router.dart';
 import 'package:portfoliosite/ui/core/localization/applocalization.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() {
+  usePathUrlStrategy();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
