@@ -16,15 +16,18 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           Applocalization.of(context).nameShort,
-          style: Theme.of(context).textTheme.displayMedium,
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
         ),
         centerTitle: false,
         actions: [
-          IconButton(
-            icon: const Icon(CupertinoIcons.folder),
+          TextButton.icon(
             onPressed: () {
               context.go(Routes.projects);
             },
+            label: Text(Applocalization.of(context).projects),
+            icon: const Icon(CupertinoIcons.folder),
           ),
         ],
       ),
@@ -39,14 +42,33 @@ class HomePage extends StatelessWidget {
                 backgroundImage: AssetImage('assets/images/profile.jpg'),
               ),
               SizedBox(height: Dimens.of(context).paddingScreenVertical),
-              Text(
-                Applocalization.of(context).name,
-                style: Theme.of(context).textTheme.displaySmall,
+
+              RichText(
+                text: TextSpan(
+                  text: Applocalization.of(context).name,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w100),
+                  children: [
+                    TextSpan(
+                      text: Applocalization.of(context).tagline,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ],
+                ),
               ),
 
               SizedBox(height: Dimens.of(context).paddingScreenVertical),
               Text(
                 Applocalization.of(context).bio,
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: Dimens.of(context).paddingScreenVertical),
+              Text(
+                Applocalization.of(context).checkoutMyProjects,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
