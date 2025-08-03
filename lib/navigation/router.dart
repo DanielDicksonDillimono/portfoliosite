@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfoliosite/ui/home/widgets/home_page.dart';
+import 'package:portfoliosite/ui/privacypolicies/widgets/privacy_policies.dart';
 import 'package:portfoliosite/ui/projects/widgets/projects_page.dart';
 import 'routes.dart';
 
@@ -18,6 +19,12 @@ GoRouter router(BuildContext context) {
             path: Routes.projects,
             builder: (context, state) {
               return ProjectsPage();
+            },
+          ),
+          GoRoute(
+            path: Routes.privacyPolicies,
+            builder: (context, state) {
+              return PrivacyPolicies();
             },
           ),
         ],

@@ -19,6 +19,10 @@ class Applocalization {
     'projectDescription':
         'Here are some of my projects.\nSome (ehmm... most) of them are still in development, while others are completed and available for you to explore.',
     'tagline': ' //Software Developer',
+    'privacy': 'Privacy',
+    'privacyPolicies': 'Privacy Policies',
+    'privacyPolicyBodyTherapy': 'Body Therapy: Privacy Policy',
+    'privacyPolicyBodyTherapyLastUpdated': 'Last updated: August, 2024',
   };
   static String _get(String key) {
     return _strings[key] ?? key;
@@ -35,6 +39,11 @@ class Applocalization {
   String get nameShort => _get('nameShort');
   String get tagline => _get('tagline');
   String get checkoutMyProjects => _get('checkoutMyProjects');
+  String get privacy => _get('privacy');
+  String get privacyPolicies => _get('privacyPolicies');
+  String get privacyPolicyBodyTherapy => _get('privacyPolicyBodyTherapy');
+  String get privacyPolicyBodyTherapyLastUpdated =>
+      _get('privacyPolicyBodyTherapyLastUpdated');
 }
 
 class ApplocalizationDelegate extends LocalizationsDelegate<Applocalization> {

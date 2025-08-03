@@ -29,6 +29,13 @@ class HomePage extends StatelessWidget {
             label: Text(Applocalization.of(context).projects),
             icon: const Icon(CupertinoIcons.folder),
           ),
+          TextButton.icon(
+            onPressed: () {
+              context.go(Routes.privacyPolicies);
+            },
+            label: Text(Applocalization.of(context).privacy),
+            icon: const Icon(CupertinoIcons.shield),
+          ),
         ],
       ),
       body: Container(
